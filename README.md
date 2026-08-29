@@ -142,9 +142,10 @@ Hyprland, Omarchy, Foot and Fastfetch configuration under:
 ~/.local/state/omarchy-config/backups/
 ```
 
-It then runs `chezmoi update --force`, reapplies the Wifus theme, reloads
-Hyprland and checks `hyprctl configerrors`. The updater prints a restore command
-for the backup created during that run.
+It then runs `chezmoi update --force`, applies Wifus through the live Omarchy
+theme path, restarts Omarchy Shell so background selection works immediately,
+reloads Hyprland and checks `hyprctl configerrors`. The updater prints a
+restore command for the backup created during that run.
 
 ## Personal data and secrets
 

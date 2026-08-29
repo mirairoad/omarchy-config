@@ -48,10 +48,20 @@ echo "Fetching and enforcing the latest configuration..."
 chezmoi update --force
 
 if command -v omarchy >/dev/null 2>&1 && [[ -d "$HOME/.config/omarchy/themes/wifus" ]]; then
-  OMARCHY_THEME_HEADLESS=1 omarchy theme set wifus
+  if command -v hyprctl >/dev/null 2>&1 && hyprctl monitors >/dev/null 2>&1; then
+    # A live session needs the normal theme path so Omarchy Shell receives the
+    # background and palette IPC updates. Headless mode only updates symlinks.
+    omarchy theme set wifus
+    omarchy restart shell
+  else
+    OMARCHY_THEME_HEADLESS=1 omarchy theme set wifus
+  fi
 fi
 
-if command -v hyprctl >/dev/null 2>&1 && hyprctl reload >/dev/null 2>&1; then
+if command -v omarchy >/dev/null 2>&1 &&
+   command -v hyprctl >/dev/null 2>&1 &&
+   hyprctl monitors >/dev/null 2>&1; then
+  omarchy restart hyprctl
   config_errors=$(hyprctl configerrors)
   if [[ -n "$config_errors" ]]; then
     echo "Hyprland reported configuration errors:" >&2

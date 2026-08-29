@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-set -euo pipefail
-
-if command -v omarchy >/dev/null 2>&1 && [[ -d "$HOME/.config/omarchy/themes/wifus" ]]; then
-  OMARCHY_THEME_HEADLESS=1 omarchy theme set wifus
-fi
-
