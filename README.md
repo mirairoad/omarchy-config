@@ -125,8 +125,26 @@ git push
 Update another machine:
 
 ```bash
-chezmoi update
+~/.local/share/chezmoi/update.sh
 ```
+
+Or fetch and run the newest updater directly:
+
+```bash
+bash <(curl -fsSL https://raw.githubusercontent.com/mirairoad/omarchy-config/main/update.sh)
+```
+
+The updater is intentionally authoritative: GitHub wins when a managed file
+was edited locally. Before enforcing the repository, it archives the existing
+Hyprland, Omarchy, Foot and Fastfetch configuration under:
+
+```text
+~/.local/state/omarchy-config/backups/
+```
+
+It then runs `chezmoi update --force`, reapplies the Wifus theme, reloads
+Hyprland and checks `hyprctl configerrors`. The updater prints a restore command
+for the backup created during that run.
 
 ## Personal data and secrets
 

@@ -19,8 +19,9 @@ fi
 
 if [[ -d "$SOURCE_DIR/.git" ]] &&
    [[ "$(git -C "$SOURCE_DIR" remote get-url origin 2>/dev/null || true)" == *"${REPOSITORY}"* ]]; then
-  echo "Existing checkout found; updating it."
-  chezmoi update
+  echo "Existing checkout found; enforcing the latest configuration."
+  chezmoi git -- pull --ff-only
+  exec "$SOURCE_DIR/update.sh"
 else
   chezmoi init --apply "$REPOSITORY"
 fi
@@ -28,4 +29,4 @@ fi
 echo
 echo "Omarchy configuration installed."
 echo "Review monitor outputs with: hyprctl monitors all"
-echo "Future updates: chezmoi update"
+echo "Future updates: $SOURCE_DIR/update.sh"
