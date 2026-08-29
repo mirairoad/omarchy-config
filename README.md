@@ -29,6 +29,29 @@ private data to be configured locally.
 
 ## Install on a new Omarchy machine
 
+### Quick install
+
+Run this from a terminal on an existing Omarchy installation:
+
+```bash
+bash <(curl -fsSL https://raw.githubusercontent.com/mirairoad/omarchy-config/main/install.sh)
+```
+
+The installer fetches chezmoi through Omarchy when necessary, asks whether the
+computer is a `desktop` or `laptop`, installs the managed configuration, and
+applies the Wifus theme. Sudo authentication happens locally through Omarchy;
+the script does not receive or store the password.
+
+If you prefer to inspect downloaded scripts before executing them:
+
+```bash
+curl -fsSLO https://raw.githubusercontent.com/mirairoad/omarchy-config/main/install.sh
+less install.sh
+bash install.sh
+```
+
+### Manual install
+
 Install chezmoi first:
 
 ```bash
