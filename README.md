@@ -79,7 +79,7 @@ installation may ask for the local sudo password; no password is stored.
 | Role | Behavior |
 | --- | --- |
 | `desktop` | Uses automatic monitor discovery at `1.6x`, plus the shared bindings, 2px gaps, 8px rounding, shell layout and theme. |
-| `laptop` | Targets the internal `eDP-1` display at `1.25x` and additionally enables natural/inverse touchpad scrolling plus three-finger drag. |
+| `laptop` | Targets the internal `eDP-1` display at `1.25x` and additionally enables natural touchpad scrolling plus three-finger drag. |
 
 Omarchy continues to provide its standard shortcuts. Personal additions and
 overrides live in `~/.config/hypr/bindings.lua` and are managed by this
@@ -92,6 +92,22 @@ The Wifus wallpapers are stored as high-quality WebP files. Their original
 pixel dimensions are preserved, metadata is removed, and the complete set is
 about 4 MB instead of 76 MB. The package manifest includes `qt6-imageformats`
 so Omarchy Shell can render WebP thumbnails and backgrounds.
+
+### Package installation
+
+Packages are declared in plain lists:
+
+```text
+packages/common.txt
+packages/desktop.txt
+packages/laptop.txt
+```
+
+Add one Arch package name per line. Both the first installation and every
+subsequent `update.sh` run install missing entries through
+`omarchy pkg add`; packages already present are skipped by Omarchy. Put shared
+tools in `common.txt` and hardware- or role-specific tools in the matching
+desktop or laptop list.
 
 After applying, inspect monitor names and supported modes:
 

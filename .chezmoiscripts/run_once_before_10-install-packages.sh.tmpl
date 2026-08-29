@@ -12,9 +12,8 @@ install_manifest() {
   mapfile -t packages < <(sed -E '/^[[:space:]]*(#|$)/d' "$manifest")
   ((${#packages[@]})) || return 0
 
-  sudo pacman -S --needed "${packages[@]}"
+  omarchy pkg add "${packages[@]}"
 }
 
 install_manifest "$source_dir/packages/common.txt"
 install_manifest "$source_dir/packages/$role.txt"
-

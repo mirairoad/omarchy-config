@@ -47,9 +47,21 @@ fi
 echo "Fetching and enforcing the latest configuration..."
 chezmoi update --force
 
-if command -v pacman >/dev/null 2>&1 && ! pacman -Qq qt6-imageformats >/dev/null 2>&1; then
-  echo "Installing Qt WebP support for Omarchy Shell backgrounds..."
-  omarchy pkg add qt6-imageformats
+install_manifest() {
+  local manifest="$1"
+  local packages=()
+
+  [[ -f "$manifest" ]] || return 0
+  mapfile -t packages < <(sed -E '/^[[:space:]]*(#|$)/d' "$manifest")
+  ((${#packages[@]})) || return 0
+
+  omarchy pkg add "${packages[@]}"
+}
+
+role=$(chezmoi data --format json | jq -r '.role // empty')
+install_manifest "$SOURCE_DIR/packages/common.txt"
+if [[ "$role" == "desktop" || "$role" == "laptop" ]]; then
+  install_manifest "$SOURCE_DIR/packages/$role.txt"
 fi
 
 if command -v omarchy >/dev/null 2>&1 && [[ -d "$HOME/.config/omarchy/themes/wifus" ]]; then
