@@ -47,6 +47,11 @@ fi
 echo "Fetching and enforcing the latest configuration..."
 chezmoi update --force
 
+if command -v pacman >/dev/null 2>&1 && ! pacman -Qq qt6-imageformats >/dev/null 2>&1; then
+  echo "Installing Qt WebP support for Omarchy Shell backgrounds..."
+  omarchy pkg add qt6-imageformats
+fi
+
 if command -v omarchy >/dev/null 2>&1 && [[ -d "$HOME/.config/omarchy/themes/wifus" ]]; then
   if command -v hyprctl >/dev/null 2>&1 && hyprctl monitors >/dev/null 2>&1; then
     # A live session needs the normal theme path so Omarchy Shell receives the

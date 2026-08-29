@@ -3,5 +3,5 @@ fastfetch
 foot
 git
 jq
+qt6-imageformats
 syncthing
-

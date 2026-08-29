@@ -90,7 +90,8 @@ in `~/.config/hypr/looknfeel.lua`.
 
 The Wifus wallpapers are stored as high-quality WebP files. Their original
 pixel dimensions are preserved, metadata is removed, and the complete set is
-about 4 MB instead of 76 MB.
+about 4 MB instead of 76 MB. The package manifest includes `qt6-imageformats`
+so Omarchy Shell can render WebP thumbnails and backgrounds.
 
 After applying, inspect monitor names and supported modes:
 
