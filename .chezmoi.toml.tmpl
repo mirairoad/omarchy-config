@@ -1,4 +1,4 @@
-{{- $role := promptStringOnce . "role" "Machine role (desktop or laptop)" -}}
+{{- $role := promptChoiceOnce . "role" "Machine role" (list "desktop" "laptop") -}}
 
 [data]
     role = {{ $role | quote }}

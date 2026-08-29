@@ -17,7 +17,6 @@ secrets/
 *.tmp
 .DS_Store
 
-# Downloaded/private wallpapers are intentionally excluded. The generated
-# placeholder.png is the only background published with the sample theme.
+# Only compressed WebP wallpapers are published with themes.
 dot_config/omarchy/themes/*/backgrounds/*
-!dot_config/omarchy/themes/wifus/backgrounds/symlink_placeholder.png
+!dot_config/omarchy/themes/*/backgrounds/*.webp

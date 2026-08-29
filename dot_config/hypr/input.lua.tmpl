@@ -1,6 +1,21 @@
 -- Keep only your personal input overrides here. Uncommented settings below
 -- replace Omarchy's defaults.
 
+{{ if eq .role "laptop" -}}
+-- Laptop touchpad behavior.
+hl.config({
+  input = {
+    touchpad = {
+      -- Natural/inverse scrolling, like a touchscreen.
+      natural_scroll = true,
+
+      -- Click and drag with three fingers.
+      drag_3fg = 1,
+    },
+  },
+})
+{{ end }}
+
 -- Keyboard layout and options.
 -- See https://wiki.hypr.land/Configuring/Basics/Variables/#input
 -- hl.config({

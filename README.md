@@ -10,7 +10,7 @@ private data to be configured locally.
 ## Included
 
 - Hyprland Lua configuration, keybinding overrides, gaps and rounding
-- Desktop/laptop-aware monitor template
+- Desktop/laptop-aware monitor and input templates
 - Omarchy Shell layout and menu extension
 - Local workspace and Nanoleaf Pegboard shell widgets
 - The third-party btop activity widget, fetched from its upstream repository
@@ -24,7 +24,7 @@ private data to be configured locally.
 - Wi-Fi, Bluetooth and Syncthing device identities
 - Browser profiles and application databases
 - Machine-specific monitor identifiers beyond a safe laptop default
-- Downloaded wallpapers without clear redistribution permission
+- Original, uncompressed wallpaper files
 - Omarchy runtime state and caches
 
 ## Install on a new Omarchy machine
@@ -37,8 +37,8 @@ Run this from a terminal on an existing Omarchy installation:
 bash <(curl -fsSL https://raw.githubusercontent.com/mirairoad/omarchy-config/main/install.sh)
 ```
 
-The installer fetches chezmoi through Omarchy when necessary, asks whether the
-computer is a `desktop` or `laptop`, installs the managed configuration, and
+The installer fetches chezmoi through Omarchy when necessary, presents a
+`desktop`/`laptop` selection, installs the managed configuration, and
 applies the Wifus theme. Sudo authentication happens locally through Omarchy;
 the script does not receive or store the password.
 
@@ -73,6 +73,24 @@ chezmoi apply
 
 Chezmoi asks whether the machine is a `desktop` or `laptop`. Package
 installation may ask for the local sudo password; no password is stored.
+
+### Machine roles
+
+| Role | Behavior |
+| --- | --- |
+| `desktop` | Uses automatic monitor discovery with the shared scale, bindings, 2px gaps, 8px rounding, shell layout and theme. |
+| `laptop` | Targets the internal `eDP-1` display and additionally enables natural/inverse touchpad scrolling plus three-finger drag. |
+
+Omarchy continues to provide its standard shortcuts. Personal additions and
+overrides live in `~/.config/hypr/bindings.lua` and are managed by this
+repository. The shared appearance settings, including gaps and rounding, live
+in `~/.config/hypr/looknfeel.lua`.
+
+### Wallpapers
+
+The Wifus wallpapers are stored as high-quality WebP files. Their original
+pixel dimensions are preserved, metadata is removed, and the complete set is
+about 4 MB instead of 76 MB.
 
 After applying, inspect monitor names and supported modes:
 
