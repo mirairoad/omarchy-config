@@ -5,6 +5,8 @@ hl.config({
   general = {
     gaps_in = 2,
     gaps_out = 2,
+    -- Keep the spiral/BSP-style layout rather than the horizontal tape.
+    layout = "dwindle",
 --     border_size = 0,
 --
 --     -- Change to niri-like side-scrolling layout.

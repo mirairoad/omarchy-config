@@ -6,8 +6,11 @@
 hl.config({
   input = {
     touchpad = {
-      -- Natural scrolling, like a touchscreen.
-      natural_scroll = true,
+      -- Conventional scrolling: fingers down moves the page down.
+      natural_scroll = false,
+
+      -- Map one-, two- and three-finger clicks consistently.
+      clickfinger_behavior = true,
 
       -- Click and drag with three fingers.
       drag_3fg = 1,

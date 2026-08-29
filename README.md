@@ -79,12 +79,13 @@ installation may ask for the local sudo password; no password is stored.
 | Role | Behavior |
 | --- | --- |
 | `desktop` | Uses automatic monitor discovery at `1.6x`, plus the shared bindings, 2px gaps, 8px rounding, shell layout and theme. |
-| `laptop` | Targets the internal `eDP-1` display at `1.25x` and additionally enables natural touchpad scrolling plus three-finger drag. |
+| `laptop` | Targets the internal `eDP-1` display at `1.25x`, uses conventional page scrolling and enables three-finger drag. |
 
 Omarchy continues to provide its standard shortcuts. Personal additions and
 overrides live in `~/.config/hypr/bindings.lua` and are managed by this
 repository. The shared appearance settings, including gaps and rounding, live
-in `~/.config/hypr/looknfeel.lua`.
+in `~/.config/hypr/looknfeel.lua`. The repository explicitly enforces the
+`dwindle` spiral layout rather than Hyprland's horizontal `scrolling` layout.
 
 ### Wallpapers
 
