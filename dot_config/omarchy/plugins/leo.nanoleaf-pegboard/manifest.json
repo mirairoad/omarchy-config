@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "id": "leo.nanoleaf-pegboard",
+  "name": "Nanoleaf Pegboard",
+  "version": "0.1.0",
+  "author": "Leo Termine",
+  "license": "MIT",
+  "description": "Bar control for the Nanoleaf Pegboard Desk Dock: on/off, brightness, preset colors, and wave mode. Talks to the nanoleaf-pegboard daemon over its CLI.",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "Panel.qml"
+  },
+  "barWidget": {
+    "displayName": "Nanoleaf Pegboard",
+    "description": "Colors, brightness, and wave mode for the Nanoleaf Pegboard Desk Dock.",
+    "category": "Hardware",
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "defaults": {
+      "command": "nanoleaf-pegboard",
+      "pollMs": 4000,
+      "scrollStep": 5,
+      "hideWhenUnplugged": false,
+      "extraMouseButtons": false
+    },
+    "schema": [
+      {
+        "key": "command",
+        "type": "string",
+        "label": "CLI command",
+        "defaultValue": "nanoleaf-pegboard"
+      },
+      {
+        "key": "pollMs",
+        "type": "int",
+        "label": "Status poll interval (ms)",
+        "defaultValue": 4000
+      },
+      {
+        "key": "scrollStep",
+        "type": "int",
+        "label": "Brightness step on scroll (%)",
+        "defaultValue": 5
+      },
+      {
+        "key": "hideWhenUnplugged",
+        "type": "bool",
+        "label": "Hide the icon when the dock is unplugged",
+        "defaultValue": false
+      },
+      {
+        "key": "extraMouseButtons",
+        "type": "bool",
+        "label": "Right-click toggles power, middle-click toggles wave (see README)",
+        "defaultValue": false
+      }
+    ]
+  }
+}

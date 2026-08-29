@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+source_dir={{ .chezmoi.sourceDir | quote }}
+role={{ .role | quote }}
+
+install_manifest() {
+  local manifest="$1"
+  local packages=()
+
+  [[ -f "$manifest" ]] || return 0
+  mapfile -t packages < <(sed -E '/^[[:space:]]*(#|$)/d' "$manifest")
+  ((${#packages[@]})) || return 0
+
+  sudo pacman -S --needed "${packages[@]}"
+}
+
+install_manifest "$source_dir/packages/common.txt"
+install_manifest "$source_dir/packages/$role.txt"
+

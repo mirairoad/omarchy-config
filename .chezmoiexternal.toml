@@ -1,0 +1,7 @@
+[".config/omarchy/plugins/ilyazar.btop"]
+    type = "git-repo"
+    url = "https://github.com/ilyaZar/omarchy-btop-activity.git"
+    refreshPeriod = "168h"
+    [".config/omarchy/plugins/ilyazar.btop".pull]
+        args = ["--ff-only"]
+

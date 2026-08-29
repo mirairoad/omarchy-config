@@ -1,0 +1,23 @@
+# Chezmoi local/generated state
+.chezmoiroot
+.chezmoiversion
+
+# Secrets and private keys must never enter this public repository
+*.agekey
+*.key
+*.pem
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+secrets/
+
+# Local editor and OS noise
+*.swp
+*.tmp
+.DS_Store
+
+# Downloaded/private wallpapers are intentionally excluded. The generated
+# placeholder.png is the only background published with the sample theme.
+dot_config/omarchy/themes/*/backgrounds/*
+!dot_config/omarchy/themes/wifus/backgrounds/symlink_placeholder.png

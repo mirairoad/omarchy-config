@@ -1,0 +1,7 @@
+chezmoi
+fastfetch
+foot
+git
+jq
+syncthing
+

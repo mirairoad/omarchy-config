@@ -1,0 +1,34 @@
+mode = "dark"
+
+# A high-contrast terminal palette built around the primary rose.
+accent = "#eb1e63"
+selection = "#4a1528"
+muted = "#33232a"
+
+background = "#0e0b0d"
+dark_background = "#090709"
+darker_background = "#050405"
+lighter_background = "#1d1519"
+
+foreground = "#f4edf0"
+dark_foreground = "#967f88"
+light_foreground = "#d8c9cf"
+bright_foreground = "#fff8fa"
+
+hyprland_active_border = "rgba(eb1e63ee) rgba(ff82a6ee) 45deg"
+
+red = "#eb1e63"
+yellow = "#e6ad68"
+orange = "#ed704f"
+green = "#69bd8d"
+cyan = "#63b8bd"
+blue = "#758fc9"
+magenta = "#bf5b9a"
+brown = "#9d665c"
+
+bright_red = "#ff4d82"
+bright_yellow = "#f4ca8c"
+bright_green = "#8ed3ac"
+bright_cyan = "#87d0d4"
+bright_blue = "#9daedb"
+bright_magenta = "#db82ba"
