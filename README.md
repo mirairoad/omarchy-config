@@ -78,8 +78,8 @@ installation may ask for the local sudo password; no password is stored.
 
 | Role | Behavior |
 | --- | --- |
-| `desktop` | Uses automatic monitor discovery with the shared scale, bindings, 2px gaps, 8px rounding, shell layout and theme. |
-| `laptop` | Targets the internal `eDP-1` display and additionally enables natural/inverse touchpad scrolling plus three-finger drag. |
+| `desktop` | Uses automatic monitor discovery at `1.6x`, plus the shared bindings, 2px gaps, 8px rounding, shell layout and theme. |
+| `laptop` | Targets the internal `eDP-1` display at `1.25x` and additionally enables natural/inverse touchpad scrolling plus three-finger drag. |
 
 Omarchy continues to provide its standard shortcuts. Personal additions and
 overrides live in `~/.config/hypr/bindings.lua` and are managed by this
